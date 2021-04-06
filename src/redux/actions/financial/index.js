@@ -18,6 +18,7 @@ export const sendApplicationRequest = (prop) => {
 };
 
 export const sendApplicationSuccess = (prop) => {
+  console.log("Though I got called")
   return {
     type: SEND_APPLICATION_SUCCESS,
     payload: prop,
@@ -32,6 +33,7 @@ export const sendApplicationFailure = (prop) => {
 };
 
 export const sendApplicationLoadingIndicator = (loading) => {
+  console.log('What about me???')
   return {
     type: SEND_APPLICATION_LOADING_INDICATOR,
     payload: { loading },

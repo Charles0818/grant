@@ -12,10 +12,11 @@ export const ajaxStatuses = (
   { type, payload }) => {
   switch (type) {
     case SEND_APPLICATION_SUCCESS:
-      prevState.success.sendApplication = payload;
+      console.log('payload', payload);
+      prevState.success.sendApplication = payload.message;
       return { ...prevState };
     case SEND_APPLICATION_FAILURE:
-      prevState.errors.sendApplication = payload;
+      prevState.errors.sendApplication = payload.error;
       return { ...prevState };
     default:
       return prevState;

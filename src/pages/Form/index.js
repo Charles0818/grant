@@ -33,7 +33,7 @@ const ApplicationForm = ({ location: { state } }) => {
   })
   const formik = useFormik({
     initialValues: {
-      first_name: "",
+      firstname: "",
       surname: "",
       email_address: "",
       business_name: "",
@@ -43,7 +43,7 @@ const ApplicationForm = ({ location: { state } }) => {
       state: "",
     },
     validationSchema: yup.object({
-      first_name: yup.string().required('Required'),
+      firstname: yup.string().required('Required'),
       surname: yup.string().required('Required'),
       email_address: yup.string().email('Invalid email address').required('Required'),
       business_name: yup.string().required('Required'),
@@ -58,10 +58,8 @@ const ApplicationForm = ({ location: { state } }) => {
         data[`${key.replace('_', ' ').toUpperCase()}`] = props[key];
       });
       dispatch(sendApplicationRequest(data));
-      console.log('Was I fired?')
     }
   });
-  console.log('All form data', formik.values);
   useEffect(() => {
     if(success && state) {
       toast.success(success, { transition: Zoom });
@@ -92,15 +90,15 @@ const ApplicationForm = ({ location: { state } }) => {
               <FormGroup className="form-label-group">
                 <Input
                   type="text"
-                  {...formik.getFieldProps('first_name')}
+                  {...formik.getFieldProps('firstname')}
                   id="nameMulti"
                   placeholder="First Name"
-                  className={`form-control ${errors.first_name &&
-                    touched.first_name &&
+                  className={`form-control ${errors.firstname &&
+                    touched.firstname &&
                     "is-invalid"}`}
                 />
-                {formik.errors.first_name && touched.first_name ? (
-                  <div className="invalid-tooltip mt-25">{errors.first_name}</div>
+                {formik.errors.firstname && touched.firstname ? (
+                  <div className="invalid-tooltip mt-25">{errors.firstname}</div>
                 ) : null}
                 <Label for="nameMulti">First Name</Label>
               </FormGroup>

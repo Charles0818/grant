@@ -21,14 +21,24 @@ const ajaxDBCalls = {
     //   url: "https://docs.google.com/forms/d/e/1FAIpQLSe514L72Lx9KrQT2-hWB_eMv6W3lnr3J8nbLE4adewfzs6otA/formResponse",
     // };
     // axios(options);
-    const response = await axios.get(
-      'https://docs.google.com/forms/d/e/1FAIpQLSe514L72Lx9KrQT2-hWB_eMv6W3lnr3J8nbLE4adewfzs6otA/formResponse',
-      payload,
-      {
-        'Content-Type': 'application/json',
-      },
-    );
-    return response;
+    const response = await fetch("https://script.google.com/macros/s/AKfycbwIIiHC8SJszcDSy2ISmwEG_6iectUvOV-T9a9HnS-12e6eeoqz6yBiwcvt30TLSwdUMw/exec", {
+      method: "POST",
+      mode: "no-cors",
+      cache: 'no-cache',
+      redirect: 'follow',
+      body: JSON.stringify(payload)
+    });
+    const parsedResponse = await response.json();
+    // return await response.json()
+    // const response = await axios.post(
+    //   'https://script.google.com/macros/s/AKfycbwAiGlXlIeWpvFZKaD90NmZDY2wtMk6IwMtXDy1lFpwYwf4ZvN-sD775m1z4U4DH9wk/exec',
+    //   { name: 'Charlieboy' },
+      // {
+      //   'Content-Type': 'application/json',
+      // },
+    // );
+    console.log('Response from GS', parsedResponse);
+    return parsedResponse;
   },
 };
 
@@ -36,7 +46,9 @@ const ajaxDBCalls = {
 function* sendApplication({ payload }) {
   try {
     yield put(sendApplicationLoadingIndicator(true));
-    yield call(ajaxDBCalls.sendApplication, payload);
+    console.log('Before Calling Success');
+    const data = yield call(ajaxDBCalls.sendApplication, payload);
+    console.log('After Calling Success');
     yield put(sendApplicationSuccess({ message: 'Application successfuly sent' }));
     yield put(sendApplicationLoadingIndicator(false));
     yield call(delay);
