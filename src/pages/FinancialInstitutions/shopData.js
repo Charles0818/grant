@@ -33,7 +33,7 @@ export const data = [
     capabilities, and an even more stunning Retina 5K display. It’s the desktop that does it all — better and faster
     than ever.`,
     price: 200000,
-    img: "/images/tef_jpeg.png",
+    img: "/images/tef_logo.jpeg",
     link: "https://www.tonyelumelufoundation.org/press-releases/2021-tef-entrepreneurship-programme",
     name: `Tony Elumelu Foundation Grant`,
     by: "Tony Elumelu Foundation"
