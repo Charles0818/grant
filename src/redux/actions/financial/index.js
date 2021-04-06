@@ -2,12 +2,7 @@ import {
   SEND_APPLICATION_FAILURE,
   SEND_APPLICATION_REQUEST,
   SEND_APPLICATION_SUCCESS,
-  LOGOUT,
   SEND_APPLICATION_LOADING_INDICATOR,
-  GET_USER_PROFILE_REQUEST,
-  GET_USER_PROFILE_SUCCESS,
-  GET_USER_PROFILE_FAILURE,
-  GET_USER_PROFILE_LOADING_INDICATOR,
 } from '../../types';
 
 export const sendApplicationRequest = (prop) => {
@@ -18,7 +13,7 @@ export const sendApplicationRequest = (prop) => {
 };
 
 export const sendApplicationSuccess = (prop) => {
-  console.log("Though I got called")
+  console.log("na wa o I got called");
   return {
     type: SEND_APPLICATION_SUCCESS,
     payload: prop,

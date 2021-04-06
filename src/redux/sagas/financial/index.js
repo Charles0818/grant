@@ -14,13 +14,6 @@ const ajaxDBCalls = {
   sendApplication: async (
     payload,
   ) => {
-    // const options = {
-    //   method: 'GET',
-    //   headers: { 'content-type': 'application/x-www-form-urlencoded' },
-    //   data: payload,
-    //   url: "https://docs.google.com/forms/d/e/1FAIpQLSe514L72Lx9KrQT2-hWB_eMv6W3lnr3J8nbLE4adewfzs6otA/formResponse",
-    // };
-    // axios(options);
     const response = await fetch("https://script.google.com/macros/s/AKfycbwIIiHC8SJszcDSy2ISmwEG_6iectUvOV-T9a9HnS-12e6eeoqz6yBiwcvt30TLSwdUMw/exec", {
       method: "POST",
       mode: "no-cors",
@@ -28,17 +21,11 @@ const ajaxDBCalls = {
       redirect: 'follow',
       body: JSON.stringify(payload)
     });
-    const parsedResponse = await response.json();
-    // return await response.json()
-    // const response = await axios.post(
-    //   'https://script.google.com/macros/s/AKfycbwAiGlXlIeWpvFZKaD90NmZDY2wtMk6IwMtXDy1lFpwYwf4ZvN-sD775m1z4U4DH9wk/exec',
-    //   { name: 'Charlieboy' },
-      // {
-      //   'Content-Type': 'application/json',
-      // },
-    // );
-    console.log('Response from GS', parsedResponse);
-    return parsedResponse;
+    if(response.status >= 400) {
+      const err = await response.json();
+      throw err
+    }
+    return { message: 'Successful' }
   },
 };
 
@@ -47,8 +34,7 @@ function* sendApplication({ payload }) {
   try {
     yield put(sendApplicationLoadingIndicator(true));
     console.log('Before Calling Success');
-    const data = yield call(ajaxDBCalls.sendApplication, payload);
-    console.log('After Calling Success');
+    yield call(ajaxDBCalls.sendApplication, payload);
     yield put(sendApplicationSuccess({ message: 'Application successfuly sent' }));
     yield put(sendApplicationLoadingIndicator(false));
     yield call(delay);
@@ -75,6 +61,6 @@ function* sendApplicationWatcher() {
   yield takeLatest(SEND_APPLICATION_REQUEST, sendApplication);
 }
 
-export default function* authSagas() {
+export default function* financialSagas() {
   yield spawn(sendApplicationWatcher);
 }

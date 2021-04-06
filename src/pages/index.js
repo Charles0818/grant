@@ -6,6 +6,7 @@ import { AppRoute } from "../Router"
 import Error404 from "../views/pages/misc/error/404"
 // import { Login } from './Auth';
 import FinancialInstitutions from "./FinancialInstitutions";
+import GrandInfo from './GrandInfo';
 import ApplicationForm from './Form';
 const Pages = () => {
   return (
@@ -15,6 +16,7 @@ const Pages = () => {
       {/* <AppRoute path="/login" component={Login} fullLayout /> */}
       <AppRoute exact path="/" component={FinancialInstitutions} />
       <AppRoute path="/apply" component={ApplicationForm} />
+      <AppRoute path="/grand/:id" component={GrandInfo} />
       <AppRoute component={Error404} fullLayout />
     </Switch>
   </Suspense>

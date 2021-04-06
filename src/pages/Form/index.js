@@ -23,6 +23,8 @@ import { toast, Zoom, Bounce } from "react-toastify"
 import { useDispatch, useSelector } from "react-redux";
 import { sendApplicationRequest } from "../../redux";
 import { Redirect } from "react-router-dom";
+// import 'react-toastify/dist/ReactToastify.css';
+  
 
 const ApplicationForm = ({ location: { state } }) => {
   const dispatch = useDispatch();
@@ -62,7 +64,7 @@ const ApplicationForm = ({ location: { state } }) => {
   });
   useEffect(() => {
     if(success && state) {
-      toast.success(success, { transition: Zoom });
+      toast.success(success, { transition: Zoom, position: toast.POSITION.TOP_RIGHT });
       setTimeout(() => window.open(state.link, "_blank"), 3000)
     }
     if(error) {
@@ -226,11 +228,11 @@ const ApplicationForm = ({ location: { state } }) => {
                 <Button.Ripple
                   color="primary"
                   type="submit"
-                  className="mr-1 mb-1"
+                  className="mr-1 mb-1 d-flex align-items-center"
                   onClick={formik.handleSubmit}
                 >
                   {loading && <Spinner color="white" size="sm" />}
-                  Submit
+                  <span className="ml-1">Submit</span>
                 </Button.Ripple>
                 <Button.Ripple
                   outline

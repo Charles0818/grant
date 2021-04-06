@@ -12,20 +12,22 @@ import { store } from "./redux"
 import "./index.scss"
 import "./@fake-db"
 import { FallbackSpinner } from "./components"
+import { ToastContainer } from 'react-toastify';
 
 
 const LazyApp = lazy(() => import("./App"))
 
 ReactDOM.render(
   <Provider store={store}>
-      <Suspense fallback={<FallbackSpinner />}>
-        <Layout>
-          <IntlProviderWrapper>
-            <LazyApp />
-          </IntlProviderWrapper>
-        </Layout>
-      </Suspense>
-    </Provider>,
+    <Suspense fallback={<FallbackSpinner />}>
+      <Layout>
+        <IntlProviderWrapper>
+          <LazyApp />
+        </IntlProviderWrapper>
+      </Layout>
+    </Suspense>
+    <ToastContainer />
+  </Provider>,
   document.getElementById("root")
 )
 

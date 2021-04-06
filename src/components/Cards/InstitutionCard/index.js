@@ -16,7 +16,7 @@ const InstitutionCard = (props) => {
     <Card className="ecommerce-card">
           <div className="card-content">
             <div className="item-img text-center">
-              <Link to="/ecommerce/product-detail">
+              <Link to={`/grand/${props.id}`}>
                 <img
                   className="img-fluid"
                   src={props.img}
