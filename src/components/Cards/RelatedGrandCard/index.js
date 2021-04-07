@@ -13,14 +13,14 @@ const RelatedGrandCard = (props) => {
       <div className="img-container">
         <img src={props.img} alt={props.name} />
       </div>
-      <div className="ratings  ml-1">
+      {/* <div className="ratings  ml-1">
         {Array(5).fill(Star).map((Star, index) => (
         <Star
           size={15}
           fill={props.rating <= index + 1 ? "#ff9f43" : "#fff"}
           stroke={props.rating <= index + 1 ? "#ff9f43" : "#b8c2cc"} />
         ))}
-      </div>
+      </div> */}
       <p className="text-bold-500 font-medium-2 text-primary mt-50">
         up to ₦{`${props.price}`}
       </p>

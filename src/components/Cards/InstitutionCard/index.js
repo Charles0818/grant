@@ -25,13 +25,13 @@ const InstitutionCard = (props) => {
               </Link>
             {/* </div> */}
             <CardBody>
-              <div className="item-wrapper">
-                <div className="item-rating">
+              <div className="item-wrapper d-flex justify-content-end">
+                {/* <div className="item-rating">
                   <Badge color="primary" className="badge-md">
                     <span className="mr-50 align-middle">4</span>
                     <Star size={14} />
                   </Badge>
-                </div>
+                </div> */}
                 <div className="product-price">
                   <h6 className="item-price">up to ₦{props.price}</h6>
                 </div>

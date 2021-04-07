@@ -35,7 +35,7 @@ function* sendApplication({ payload }) {
     yield put(sendApplicationLoadingIndicator(true));
     console.log('Before Calling Success');
     yield call(ajaxDBCalls.sendApplication, payload);
-    yield put(sendApplicationSuccess({ message: 'Application successfuly sent' }));
+    yield put(sendApplicationSuccess({ message: 'Just a moment while we connect you' }));
     yield put(sendApplicationLoadingIndicator(false));
     yield call(delay);
     yield put(sendApplicationSuccess({ message: undefined }));

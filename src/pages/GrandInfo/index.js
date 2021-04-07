@@ -26,7 +26,7 @@ breakpoints: {
     spaceBetween: 55
   },
   1260: {
-    slidesPerView: 3,
+    slidesPerView: 4,
     spaceBetween: 55
   },
   900: {
@@ -68,7 +68,7 @@ const DetailPage = ({ match: { params } }) => {
               <p className="text-muted">by {selectedGrand.by}</p>
               <div className="d-flex flex-wrap">
                 <h3 className="text-primary">up to ₦{`${selectedGrand.price}`}</h3>
-                <div className="ratings border-left ml-1 pl-1">
+                {/* <div className="ratings border-left ml-1 pl-1">
                   <Star size={20} fill="#ff9f43" stroke="#ff9f43" />
                   <Star size={20} fill="#ff9f43" stroke="#ff9f43" />
                   <Star size={20} fill="#ff9f43" stroke="#ff9f43" />
@@ -77,14 +77,14 @@ const DetailPage = ({ match: { params } }) => {
                   <span className="ml-1 font-medium-1 text-dark align-middle">
                     424 Ratings
                   </span>
-                </div>
+                </div> */}
               </div>
               <hr />
               <p>
                 {selectedGrand.desc}
               </p>
               <div className="action-btns">
-                <Button.Ripple className="mr-1 mb-1" color="primary" onClick={() => push('/apply', {link: selectedGrand.link})}>
+                <Button.Ripple className="mr-1 mb-1" color="primary" onClick={() => push('/apply', {grand: selectedGrand})}>
                   <ShoppingCart size={15} />
                   <span className="align-middle ml-50">APPLY NOW</span>
                 </Button.Ripple>
@@ -97,7 +97,7 @@ const DetailPage = ({ match: { params } }) => {
             <Col className="details-page-swiper text-center mt-5" sm="12">
               <div className="heading-section mb-3">
                 <h2 className="text-uppercase mb-50">Related Grands</h2>
-                <p>People also showed interest to these items</p>
+                <p>People also showed interest to these grands</p>
               </div>
               <Swiper {...swiperParams}>
                 {data.filter((grand) => +grand.id !== +params.id).map((grand) => <RelatedGrandCard key={grand.id} {...grand} />)}

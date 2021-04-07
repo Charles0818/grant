@@ -48,7 +48,12 @@ class FinancialInstitutions extends React.Component {
             onClick={() => this.onSetSidebarOpen(false)}></div>
           <div className="sidebar-section">
             <Sidebar
-              sidebar={<ShopSidebar filterInstitutions={this.filterInstitutions} />}
+              sidebar={
+                <ShopSidebar
+                  filterInstitutions={this.filterInstitutions}
+                  data={this.state.institutions}
+                />
+              }
               docked={this.state.sidebarDocked}
               open={this.state.sidebarOpen}
               sidebarClassName="sidebar-shop"

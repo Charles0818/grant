@@ -4,7 +4,7 @@ import { Check } from "react-feather"
 import Radio from "../../components/@vuexy/radio/RadioVuexy"
 import Checkbox from "../../components/@vuexy/checkbox/CheckboxesVuexy"
 // import "rc-slider/assets/index.css"
-import { data } from './shopData';
+import { data as originalData } from './shopData';
 // import "../../../../assets/scss/plugins/extensions/slider.scss"
 const priceRanges = [
   { min: 10000, max: 50000 },
@@ -13,9 +13,9 @@ const priceRanges = [
   { min: 501000 },
 ];
 
-const ShopSidebar = ({ filterInstitutions }) => {
+const ShopSidebar = ({ filterInstitutions, data }) => {
   let providers = {};
-  data.forEach((institution) => {
+  originalData.forEach((institution) => {
     if(providers[institution.by]) {
       providers[institution.by] = providers[institution.by] + 1
     };
@@ -25,7 +25,11 @@ const ShopSidebar = ({ filterInstitutions }) => {
   const [priceRange, setPriceRange]= useState()
 
   const handlePriceRangeChange = (e) => {
-    if(e.target.value === 'all') return setPriceRange({ min: 0 });
+    if(e.target.value === 'all') {
+      setPriceRange({ min: 0 });
+      setCheckedProviders(Object.keys(providers));
+      return;
+    };
     setCheckedProviders(data.filter((grand) => +grand.price >= +e.target.value)?.map((grand) => grand.by));
     setPriceRange(priceRanges[+e.target.value])
   }

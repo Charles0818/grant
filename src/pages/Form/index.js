@@ -56,11 +56,11 @@ const ApplicationForm = ({ location: { state } }) => {
     }),
     onSubmit: (props) => {
       let data = {};
-      data.grand = state.grand.name;
+      data.GRAND = state.grand.name;
       Object.keys(props).forEach((key) => {
         data[`${key.replace('_', ' ').toUpperCase()}`] = props[key];
       });
-
+      console.log('I got clicked')
       dispatch(sendApplicationRequest(data));
     }
   });
@@ -234,7 +234,7 @@ const ApplicationForm = ({ location: { state } }) => {
                   onClick={formik.handleSubmit}
                 >
                   {loading && <Spinner color="white" size="sm" />}
-                  <span className="ml-1">Submit</span>
+                  <span className="ml-1">Next</span>
                 </Button.Ripple>
                 <Button.Ripple
                   outline
