@@ -218,8 +218,11 @@ class NavbarUser extends React.PureComponent {
     })
 
     return (
-      <ul className="nav navbar-nav navbar-nav-user float-right">
-        <IntlContext.Consumer>
+      <ul className="nav navbar-nav navbar-nav-user">
+        <div className="d-flex align-items-center">
+          <img src="/grant_hero_logo.svg" style={{width: '150px',height: 'auto'}} alt="Grant Hero Logo" />
+        </div>
+        {/* <IntlContext.Consumer>
           {context => {
             let langArr = {
               "en" : "English",
@@ -285,12 +288,12 @@ class NavbarUser extends React.PureComponent {
               </Dropdown>
             )
           }}
-        </IntlContext.Consumer>
+        </IntlContext.Consumer> */}
 
         <NavItem className="nav-search" onClick={this.handleNavbarSearch}>
-          <NavLink className="nav-link-search">
+          {/* <NavLink className="nav-link-search mr-10">
             <Icon.Search size={21} data-tour="search" />
-          </NavLink>
+          </NavLink> */}
           <div
             className={classnames("search-input", {
               open: this.state.navbarSearch,
@@ -306,7 +309,7 @@ class NavbarUser extends React.PureComponent {
               filterKey="title"
               filterHeaderKey="groupTitle"
               grouped={true}
-              placeholder="Explore Vuexy..."
+              placeholder="Explore Available Grands..."
               autoFocus={true}
               clearInput={this.state.navbarSearch}
               externalClick={e => {
@@ -413,7 +416,7 @@ class NavbarUser extends React.PureComponent {
             </div>
           </div>
         </NavItem>
-        <UncontrolledDropdown
+        {/* <UncontrolledDropdown
           tag="li"
           className="dropdown-notification nav-item"
         >
@@ -475,8 +478,8 @@ class NavbarUser extends React.PureComponent {
               Your Cart Is Empty
             </li>
           </DropdownMenu>
-        </UncontrolledDropdown>
-        <UncontrolledDropdown
+        </UncontrolledDropdown> */}
+        {/* <UncontrolledDropdown
           tag="li"
           className="dropdown-notification nav-item"
         >
@@ -634,8 +637,8 @@ class NavbarUser extends React.PureComponent {
               </DropdownItem>
             </li>
           </DropdownMenu>
-        </UncontrolledDropdown>
-        <UncontrolledDropdown tag="li" className="dropdown-user nav-item">
+        </UncontrolledDropdown> */}
+        {/* <UncontrolledDropdown tag="li" className="dropdown-user nav-item">
           <DropdownToggle tag="a" className="nav-link dropdown-user-link">
             <div className="user-nav d-sm-flex d-none">
               <span className="user-name text-bold-600">
@@ -654,7 +657,7 @@ class NavbarUser extends React.PureComponent {
             </span>
           </DropdownToggle>
           <UserDropdown {...this.props} />
-        </UncontrolledDropdown>
+        </UncontrolledDropdown> */}
       </ul>
     )
   }

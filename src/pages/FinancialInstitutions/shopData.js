@@ -4,13 +4,13 @@ export const data = [
     name: "Bank of Industry Grant",
     by: "Bank of Industry",
     desc: `The Bank of Industry provides facilities at tenors that range from 12 to 60 months and above. Since the funds the Bank is mandated to provide is for the manufacturing sector, which return a longer time frame from start to profitability, the Bank structures its loan tenors to accommodate this incubation period. Moratorium periods are incorporated into our loan tenors to ease repayment concerns.`,
-    price: 20000,
+    price: 200000,
     img: "/images/boi_logo.png",
     link: "https://www.boi.ng/boi-products/fgn-special-intervention-fund-for-msme/"
   },
   {
     id: 2,
-    price: 20000,
+    price: 200000,
     img: "/images/boa_logo.png",
     link: "https://www.simplifiedcredit.net/matching-fund/screening",
     name: "Bank of Agriculture Grant",
@@ -96,7 +96,7 @@ export const data = [
     This facility is administered by ExporTT Limited and assists SMEs in eight (8) designated sectors, 
     with the acquisition of new capital requirements/expenditure. Through this facility, local business persons can access individual Grants from the fund up to a maximum of $250,000 per beneﬁciary to ﬁnance 50% of the cost of the acquisition. 
     (The Grant does not cover working capital, land and building costs, and installation costs).`,
-    price: 20000
+    price: 200000
   },
   {
     id: 9,
@@ -107,7 +107,7 @@ export const data = [
     Under the scheme, beneficiaries can get access to a higher facility ranging from N15,000 to N50,000 when they repay N10,000 within the stipulated time period.
     The Bank of Industry management software validates the loan application. The loan is paid within 48 hours to a mobile wallet account, that can then be cashed out.
     Start or grow your own business with the help of a government-backed Loan and free business support. A great alternative for individuals looking for business loans to fund their business.`,
-    price: 20000,
+    price: 200000,
     img: "/images/tradermoni_logo.png",
     link: "https://startcredits.com/loans/tradermoni/",
   }

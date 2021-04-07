@@ -242,6 +242,9 @@ $wishlist-bg: #f6f6f6;
       justify-content: flex-end;
       .card-content {
         .item-img {
+          display: flex;
+          align-items: center;
+          justify-content: center;
           padding-top: 0.5rem;
           min-height: 15.85rem;
         }

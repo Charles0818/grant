@@ -44,7 +44,7 @@ const ShopContent = ({ data, mainSidebar, sidebar }) => {
                     onClick={() => mainSidebar(true)}
                   />
                 </div>
-                <div className="search-results">{data.length === 0 ? 'No Result' : 1 ? `1 Result` : `${data.length} Results`} Found</div>
+                <div className="search-results">{data.length === 0 ? 'No Result' : data.length === 1 ? `1 Result` : `${data.length} Results`} Found</div>
               </div>
               <div className="view-options d-flex justify-content-end w-75">
                 <Select

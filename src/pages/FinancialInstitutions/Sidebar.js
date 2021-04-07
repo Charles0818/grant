@@ -20,11 +20,13 @@ const ShopSidebar = ({ filterInstitutions }) => {
       providers[institution.by] = providers[institution.by] + 1
     };
     providers[institution.by] = 1;
-  });
+  }); 
   const [checkedProviders, setCheckedProviders] = useState([]);
   const [priceRange, setPriceRange]= useState()
 
   const handlePriceRangeChange = (e) => {
+    if(e.target.value === 'all') return setPriceRange({ min: 0 });
+    setCheckedProviders(data.filter((grand) => +grand.price >= +e.target.value)?.map((grand) => grand.by));
     setPriceRange(priceRanges[+e.target.value])
   }
   const handleCheckedProviders = (e) => {
@@ -67,6 +69,8 @@ const ShopSidebar = ({ filterInstitutions }) => {
                   defaultChecked={true}
                   name="shopRadio"
                   className="py-25"
+                  value="all"
+                  onChange={handlePriceRangeChange}
                 />
               </li>
               {priceRanges.map((range, index) => (
