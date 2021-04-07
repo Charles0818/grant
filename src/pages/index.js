@@ -5,8 +5,8 @@ import { LoadingSpinner } from "../components";
 import { AppRoute } from "../Router"
 import Error404 from "../views/pages/misc/error/404"
 // import { Login } from './Auth';
-import FinancialInstitutions from "./FinancialInstitutions";
-import GrandInfo from './GrandInfo';
+import Grants from "./Grants";
+import GrantInfo from './GrantInfo';
 import ApplicationForm from './Form';
 const Pages = () => {
   return (
@@ -14,9 +14,9 @@ const Pages = () => {
     <Suspense fallback={<LoadingSpinner />}>
     <Switch>
       {/* <AppRoute path="/login" component={Login} fullLayout /> */}
-      <AppRoute exact path="/" component={FinancialInstitutions} />
+      <AppRoute exact path="/" component={Grants} />
       <AppRoute path="/apply" component={ApplicationForm} />
-      <AppRoute path="/grant/:id" component={GrandInfo} />
+      <AppRoute path="/grant/:id" component={GrantInfo} />
       <AppRoute component={Error404} fullLayout />
     </Switch>
   </Suspense>

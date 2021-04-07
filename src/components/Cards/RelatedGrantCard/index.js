@@ -1,7 +1,7 @@
 import React from 'react';
 import { Star } from 'react-feather';
 
-const RelatedGrandCard = (props) => {
+const RelatedGrantCard = (props) => {
   return (
     <div>
       <div className="title mb-1">
@@ -28,4 +28,4 @@ const RelatedGrandCard = (props) => {
   )
 }
 
-export default RelatedGrandCard;
+export default RelatedGrantCard;

@@ -13,7 +13,7 @@ import {
   Search,
   Menu
 } from "react-feather"
-import { InstitutionCard } from '../../components';
+import { GrantCard } from '../../components';
 import "../../assets/scss/plugins/forms/react-select/_react-select.scss"
 const sortOptions = [
   {
@@ -92,7 +92,7 @@ const ShopContent = ({ data, mainSidebar, sidebar }) => {
           </Col>
           <Col sm="12">
             <div id="ecommerce-products" className={view}>
-              {data.map((institution, i) =>   <InstitutionCard {...institution} key={i} />)}
+              {data.map((institution, i) =>   <GrantCard {...institution} key={i} />)}
             </div>
           </Col>
           {/* <Col sm="12">

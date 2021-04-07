@@ -8,9 +8,9 @@ import Breacrumbs from "../../components/@vuexy/breadCrumbs/BreadCrumb"
 import Swiper from "react-id-swiper"
 import "swiper/css/swiper.css"
 import "../../assets/scss/pages/app-ecommerce-shop.scss"
-import { data } from "../FinancialInstitutions/shopData"
+import { data } from "../Grants/shopData";
 import { useHistory } from "react-router-dom"
-import { RelatedGrandCard } from '../../components';
+import { RelatedGrantCard } from '../../components';
 import { BsClipboard } from 'react-icons/bs';
 const swiperParams = {
 navigation: {
@@ -86,7 +86,7 @@ const DetailPage = ({ match: { params } }) => {
               </p>
               <div className="action-btns">
                 <Button.Ripple className="mr-1 mb-1" color="primary" onClick={() => push('/apply', {grant: selectedGrant})}>
-                  <BsClipboard size={15} />
+                  {/* <BsClipboard size={15} /> */}
                   <span className="align-middle ml-50">APPLY NOW</span>
                 </Button.Ripple>
               </div>
@@ -101,7 +101,7 @@ const DetailPage = ({ match: { params } }) => {
                 <p>People also showed interest to these grants</p>
               </div>
               <Swiper {...swiperParams}>
-                {data.filter((grant) => +grant.id !== +params.id).map((grant) => <RelatedGrandCard key={grant.id} {...grant} />)}
+                {data.filter((grant) => +grant.id !== +params.id).map((grant) => <RelatedGrantCard key={grant.id} {...grant} />)}
               </Swiper>
             </Col>
           </Row>

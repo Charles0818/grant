@@ -10,7 +10,7 @@ import {
 } from "react-feather"
 import { Link, useHistory } from "react-router-dom"
 
-const InstitutionCard = (props) => {
+const GrantCard = (props) => {
   const { push } = useHistory();
   return (
     <Card className="ecommerce-card">
@@ -72,4 +72,4 @@ const InstitutionCard = (props) => {
   )
 }
 
-export default InstitutionCard;
+export default GrantCard;

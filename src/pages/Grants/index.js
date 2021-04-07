@@ -7,7 +7,7 @@ import { data } from './shopData';
 import "../../assets/scss/pages/app-ecommerce-shop.scss"
 
 const mql = window.matchMedia(`(min-width: 992px)`)
-class FinancialInstitutions extends React.Component {
+class Grants extends React.Component {
   state = {
     sidebarDocked: mql.matches,
     sidebarOpen: false,
@@ -29,7 +29,7 @@ class FinancialInstitutions extends React.Component {
   mediaQueryChanged = () => {
     this.setState({ sidebarDocked: mql.matches, sidebarOpen: false })
   }
-  filterInstitutions = (data) => {
+  filterGrants = (data) => {
     this.setState({ institutions: data })
   }
   render() {
@@ -50,7 +50,7 @@ class FinancialInstitutions extends React.Component {
             <Sidebar
               sidebar={
                 <ShopSidebar
-                  filterInstitutions={this.filterInstitutions}
+                filterGrants={this.filterGrants}
                   data={this.state.institutions}
                 />
               }
@@ -72,4 +72,4 @@ class FinancialInstitutions extends React.Component {
     )
   }
 }
-export default FinancialInstitutions
+export default Grants

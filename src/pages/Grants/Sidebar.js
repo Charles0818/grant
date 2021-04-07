@@ -13,37 +13,43 @@ const priceRanges = [
   { min: 501000 },
 ];
 
-const ShopSidebar = ({ filterInstitutions, data }) => {
+const ShopSidebar = ({ filterGrants, data }) => {
   let providers = {};
-  originalData.forEach((institution) => {
-    if(providers[institution.by]) {
-      providers[institution.by] = providers[institution.by] + 1
+  originalData.forEach((grand) => {
+    if(providers[grand.by]) {
+      providers[grand.by] = providers[grand.by] + 1
     };
-    providers[institution.by] = 1;
+    providers[grand.by] = 1;
   }); 
   const [checkedProviders, setCheckedProviders] = useState([]);
-  const [priceRange, setPriceRange]= useState()
-
+  const [priceRange, setPriceRange]= useState();
   const handlePriceRangeChange = (e) => {
     if(e.target.value === 'all') {
       setPriceRange({ min: 0 });
-      setCheckedProviders(Object.keys(providers));
       return;
     };
-    setCheckedProviders(data.filter((grant) => +grant.price >= +e.target.value)?.map((grant) => grant.by));
-    setPriceRange(priceRanges[+e.target.value])
+    setPriceRange(priceRanges[+e.target.value]);
   }
   const handleCheckedProviders = (e) => {
+    e.persist();
+    console.log('Event', e.target);
     if(checkedProviders.includes(e.target.value)) {
-      setCheckedProviders((prev) => prev.filter((el) => el !== e.target.value))
+      setCheckedProviders((prev) => prev.filter((el) => el !== e.target.value));
+      filterGrants(data.filter((grant) => grant.by !== e.target.value));
     } else {
       setCheckedProviders((prev) => [...prev, e.target.value])
+      filterGrants([...data, originalData.find((grand) => grand.by === e.target.value)]);
     }
-  }
+
+  };
+  useEffect(() => {
+    setCheckedProviders(data.map((grant) => grant.by));
+  }, [data]);
+
   useEffect(()=> {
-    let result = data;
-    data.forEach((institution) => {
-      if(checkedProviders.includes(institution.by)) {
+    let result = originalData;
+    result.forEach((institution) => {
+      if(checkedProviders.includes(institution.by) && !result.find((grant) => grant.by === institution.by)) {
         result = [...result, institution]
       }
     })
@@ -55,8 +61,8 @@ const ShopSidebar = ({ filterInstitutions, data }) => {
       }
     }
   
-    filterInstitutions(result);
-  },[checkedProviders, filterInstitutions, priceRange]);
+    filterGrants(result);
+  },[filterGrants, priceRange]);
   return (
     <React.Fragment>
       <h6 className="filter-heading d-none d-lg-block">Filters</h6>
