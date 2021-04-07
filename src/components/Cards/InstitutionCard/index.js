@@ -16,7 +16,7 @@ const InstitutionCard = (props) => {
     <Card className="ecommerce-card">
           <div className="card-content">
             {/* <div className="item-img text-center"> */}
-              <Link to={`/grand/${props.id}`} className="item-img text-center">
+              <Link to={`/grant/${props.id}`} className="item-img text-center">
                 <img
                   className="img-fluid"
                   src={props.img}
@@ -61,7 +61,7 @@ const InstitutionCard = (props) => {
                   <h6 className="item-price">up to ₦{props.price}</h6>
                 </div>
               </div>
-              <div className="cart" onClick={() => push('/apply', {grand: props})}>
+              <div className="cart" onClick={() => push('/apply', {grant: props})}>
                 <span className="align-middle ml-50">
                   Apply Now
                 </span>

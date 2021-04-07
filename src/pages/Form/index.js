@@ -56,7 +56,7 @@ const ApplicationForm = ({ location: { state } }) => {
     }),
     onSubmit: (props) => {
       let data = {};
-      data.GRAND = state.grand.name;
+      data.GRAND = state.grant.name;
       Object.keys(props).forEach((key) => {
         data[`${key.replace('_', ' ').toUpperCase()}`] = props[key];
       });
@@ -67,7 +67,7 @@ const ApplicationForm = ({ location: { state } }) => {
   useEffect(() => {
     if(success && state) {
       toast.success(success, { transition: Zoom, position: toast.POSITION.TOP_RIGHT });
-      setTimeout(() => window.open(state.grand.link, "_blank"), 3000)
+      setTimeout(() => window.open(state.grant.link, "_blank"), 3000)
     }
     if(error) {
       toast.error(error, { transition: Bounce })

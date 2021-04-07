@@ -30,7 +30,7 @@ const ShopSidebar = ({ filterInstitutions, data }) => {
       setCheckedProviders(Object.keys(providers));
       return;
     };
-    setCheckedProviders(data.filter((grand) => +grand.price >= +e.target.value)?.map((grand) => grand.by));
+    setCheckedProviders(data.filter((grant) => +grant.price >= +e.target.value)?.map((grant) => grant.by));
     setPriceRange(priceRanges[+e.target.value])
   }
   const handleCheckedProviders = (e) => {

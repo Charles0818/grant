@@ -133,7 +133,7 @@ class NavbarUser extends React.PureComponent {
               filterKey="title"
               filterHeaderKey="groupTitle"
               grouped={true}
-              placeholder="Explore Available Grands..."
+              placeholder="Explore Available Grants..."
               autoFocus={true}
               clearInput={this.state.navbarSearch}
               externalClick={e => {

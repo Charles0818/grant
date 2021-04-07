@@ -11,6 +11,7 @@ import "../../assets/scss/pages/app-ecommerce-shop.scss"
 import { data } from "../FinancialInstitutions/shopData"
 import { useHistory } from "react-router-dom"
 import { RelatedGrandCard } from '../../components';
+import { BsClipboard } from 'react-icons/bs';
 const swiperParams = {
 navigation: {
   nextEl: ".swiper-button-next",
@@ -44,14 +45,14 @@ breakpoints: {
 }
 }
 const DetailPage = ({ match: { params } }) => {
-  const selectedGrand = data.find((grand) => +grand.id === +params.id);
+  const selectedGrant = data.find((grant) => +grant.id === +params.id);
   const { push } = useHistory();
   return (
     <React.Fragment>
       <Breacrumbs
-        breadCrumbTitle="Grand Detail"
-        breadCrumbParent="Grands"
-        breadCrumbActive="Grand Detail"
+        breadCrumbTitle="Grant Detail"
+        breadCrumbParent="Grants"
+        breadCrumbActive="Grant Detail"
       />
       <Card className="overflow-hidden app-ecommerce-details">
         <CardBody className="pb-0">
@@ -61,13 +62,13 @@ const DetailPage = ({ match: { params } }) => {
               sm="12"
               md="5"
             >
-              <img src={selectedGrand.img} alt="Google Home" height="130" width="250" />
+              <img src={selectedGrant.img} alt="Google Home" height="130" width="250" />
             </Col>
             <Col md="7" sm="12">
-              <h3>{selectedGrand.name}</h3>
-              <p className="text-muted">by {selectedGrand.by}</p>
+              <h3>{selectedGrant.name}</h3>
+              <p className="text-muted">by {selectedGrant.by}</p>
               <div className="d-flex flex-wrap">
-                <h3 className="text-primary">up to ₦{`${selectedGrand.price}`}</h3>
+                <h3 className="text-primary">up to ₦{`${selectedGrant.price}`}</h3>
                 {/* <div className="ratings border-left ml-1 pl-1">
                   <Star size={20} fill="#ff9f43" stroke="#ff9f43" />
                   <Star size={20} fill="#ff9f43" stroke="#ff9f43" />
@@ -81,30 +82,30 @@ const DetailPage = ({ match: { params } }) => {
               </div>
               <hr />
               <p>
-                {selectedGrand.desc}
+                {selectedGrant.desc}
               </p>
               <div className="action-btns">
-                <Button.Ripple className="mr-1 mb-1" color="primary" onClick={() => push('/apply', {grand: selectedGrand})}>
-                  <ShoppingCart size={15} />
+                <Button.Ripple className="mr-1 mb-1" color="primary" onClick={() => push('/apply', {grant: selectedGrant})}>
+                  <BsClipboard size={15} />
                   <span className="align-middle ml-50">APPLY NOW</span>
                 </Button.Ripple>
               </div>
             </Col>
           </Row>
         </CardBody>
-        <CardBody>
+        {/* <CardBody>
           <Row>
             <Col className="details-page-swiper text-center mt-5" sm="12">
               <div className="heading-section mb-3">
-                <h2 className="text-uppercase mb-50">Related Grands</h2>
-                <p>People also showed interest to these grands</p>
+                <h2 className="text-uppercase mb-50">Related Grants</h2>
+                <p>People also showed interest to these grants</p>
               </div>
               <Swiper {...swiperParams}>
-                {data.filter((grand) => +grand.id !== +params.id).map((grand) => <RelatedGrandCard key={grand.id} {...grand} />)}
+                {data.filter((grant) => +grant.id !== +params.id).map((grant) => <RelatedGrandCard key={grant.id} {...grant} />)}
               </Swiper>
             </Col>
           </Row>
-        </CardBody>
+        </CardBody> */}
       </Card>
     </React.Fragment>
   )

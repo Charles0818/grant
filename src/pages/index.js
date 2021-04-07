@@ -16,7 +16,7 @@ const Pages = () => {
       {/* <AppRoute path="/login" component={Login} fullLayout /> */}
       <AppRoute exact path="/" component={FinancialInstitutions} />
       <AppRoute path="/apply" component={ApplicationForm} />
-      <AppRoute path="/grand/:id" component={GrandInfo} />
+      <AppRoute path="/grant/:id" component={GrandInfo} />
       <AppRoute component={Error404} fullLayout />
     </Switch>
   </Suspense>
