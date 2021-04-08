@@ -3,7 +3,7 @@ import { Router, Switch, Route, BrowserRouter } from "react-router-dom"
 import { history } from "../history"
 import { LoadingSpinner } from "../components";
 import { AppRoute } from "../Router"
-import Error404 from "../views/pages/misc/error/404"
+import { Error404 } from "./Misc";
 // import { Login } from './Auth';
 import Grants from "./Grants";
 import GrantInfo from './GrantInfo';
